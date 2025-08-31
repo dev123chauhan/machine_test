@@ -29,7 +29,7 @@ export default function HowDoesItWorks() {
               );
             })}
         </Row>
-      </Container>
+      </Container>  
     </div>
   );
 }

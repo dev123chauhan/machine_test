@@ -1,4 +1,6 @@
 import Contacts from "../components/Contacts";
+import DownloadApp from "../components/DownloadApp";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import HowDoesItWorks from "../components/HowDoesItWorks";
@@ -18,6 +20,8 @@ export default function Home() {
       <Testimonials />
       <WhyChooseUs />
       <SuccessStories />
+      <DownloadApp />
+      <Footer />
     </>
   );
 }

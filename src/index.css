@@ -15,17 +15,89 @@
 * {
   font-family: "Public Sans", sans-serif !important;
 }
+
 .btn-primary {
-  --bs-btn-bg: var(--secondary-color) !important;
-  --bs-btn-border-color: var(--secondary-color) !important;
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--secondary-color) !important;
+    --bs-btn-border-color: var(--secondary-color) !important;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--secondary-color) !important;
+    --bs-btn-hover-border-color: var(--secondary-color) !important;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--secondary-color) !important;
+    --bs-btn-active-border-color: var(--secondary-color) !important;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: var(--secondary-color) !important;
+    --bs-btn-disabled-border-color: var(--secondary-color) !important;
 }
 
 .navbar-nav{
-  gap: 40px !important;
+  gap: 35px !important;
 }
 .cardColor{
   background: #F8F0F2 !important;
 }
 .nav-link {
   white-space: nowrap !important;
+}
+.nav-dropdown-container {
+  position: relative;
+}
+
+.nav-dropdown-container .custom-dropdown {
+  display: block !important;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 250px;
+  background: #fff;
+  border: 1px solid var(--secondary-color);
+  border-radius: 8px;
+  padding: 8px 0;
+  z-index: 1000;
+}
+.nav-dropdown-container .dropdown-toggle::after {
+  display: none !important;
+}
+.custom-dropdown .dropdown-item {
+  padding: 10px 30px;
+  font-size: 14px;
+  color: #000;
+}
+.custom-dropdown .dropdown-item:hover {
+  background: #f8f9fa;
+}
+.nav-dropdown-container span {
+  display: inline-block;
+  padding: 0.5rem 1rem; 
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+
+@media(max-width:991px){
+  .heartRight{
+    display: none !important;
+  }
+  .heartLeft{
+    display: none !important;
+  }
+  .nav-dropdown-container{
+    display: none !important;
+  }
+}
+
+.navbar-toggler-icon-close {
+  color: var(--primary-color) !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.navLink{
+  color: var(--secondary-color) !important;
 }

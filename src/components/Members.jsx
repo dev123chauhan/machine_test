@@ -15,8 +15,8 @@ export default function Members() {
     { img: member5, title: "Angel Hopkins", text: "Canada . 32" },
   ];
   return (
-    <div className="secondaryColor">
-      <div className="text-center py-5">
+    <div className="secondaryColor py-5">
+      <div className="text-center">
         <h4 className="textColor fw-bold fs-3">Top Members</h4>
         <p className="display-5 textColor fw-bold">Soulsync Top Members</p>
         <img src={howitworksImg} alt="" className="mb-5" />

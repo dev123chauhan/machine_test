@@ -30,12 +30,12 @@ export default function SuccessStories() {
         <p className="display-5 textColor fw-bold">Stories From The Hearts</p>
         <img src={howitworksImg} alt="" className="mb-5" />
       </div>
-      <Container>
+      <Container className="mb-5">
         <Row>
           {successStories &&
             successStories.map((item, index) => {
               return (
-                <Col xxl={4} xl={4} lg={4} md={6} sm={12} xs={12} key={index}>
+                <Col xxl={4} xl={4} lg={4} md={6} sm={12} xs={12} key={index} className="g-4">
                   <Card className="p-3 cardColor">
                     <Card.Img src={item.img} alt="" className="mb-3 w-100" />
                     <Card.Body>

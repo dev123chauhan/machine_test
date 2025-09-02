@@ -1,8 +1,8 @@
 import { Col, Container, Row } from "react-bootstrap";
-import howitworksImg from "../assets/howitworks.png";
-import profile from "../assets/profile.png";
-import match from "../assets/match.png";
-import dating from "../assets/dating.png";
+import howitworksImg from "../../assets/howitworks.png";
+import profile from "../../assets/profile.png";
+import match from "../../assets/match.png";
+import dating from "../../assets/dating.png";
 export default function HowDoesItWorks() {
   const howitworks = [
     { img: profile, title: "Create A Profile", text: "Learn from them and try to make it to this bored. this will forsure boost you visibility and increase your chances to find you loved one." },

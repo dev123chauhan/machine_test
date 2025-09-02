@@ -1,69 +1,77 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../assets/logo.png";
-import { NavDropdown } from "react-bootstrap";
 import { HiMenu, HiX } from "react-icons/hi";
+
+const navItems = [
+  { label: "Home", type: "link", path: "/" },
+  { label: "Features", type: "link", path: "/features" },
+  {
+    label: "Community",
+    type: "dropdown",
+    items: [
+      { label: "Members", path: "/members" },
+      { label: "Members Details", path: "/members-details" },
+      { label: "Stories", path: "/stories" },
+      { label: "Groups", path: "/groups" },
+      { label: "Active Groups", path: "/active-groups" },
+      { label: "Login", path: "/login" },
+      { label: "Sign Up", path: "/signup" },
+    ],
+  },
+  { label: "Blog", type: "link", path: "/blog" },
+  { label: "Pages", type: "link", path: "/pages" },
+  { label: "Contact", type: "link", path: "/contact" },
+];
+
+const rightNavItems = [
+  { label: "Sign in", type: "link", path: "/signin" },
+  { label: "Help", type: "link", path: "/help" },
+  { label: "Register", type: "button", path: "/register" },
+];
 
 export default function Header() {
   const [expanded, setExpanded] = useState(false);
   const [activeLink, setActiveLink] = useState("Home");
-  const navItems = [
-    { label: "Home", type: "link" },
-    { label: "Features", type: "link" },
-    {
-      label: "Community",
-      type: "dropdown",
-      items: [
-        "Members",
-        "Members Details",
-        "Stories",
-        "Groups",
-        "Active Groups",
-        "Login",
-        "Sign Up"
-      ]
-    },
-    { label: "Blog", type: "link" },
-    { label: "Pages", type: "link" },
-    { label: "Contact", type: "link" }
-  ];
+  const location = useLocation();
 
-
-  const rightNavItems = [
-    { label: "Sign in", type: "link" },
-    { label: "Help", type: "link" },
-    { label: "Register", type: "button" }
-  ];
-
-  const handleToggle = () => {
-    setExpanded(!expanded);
-  };
+  useEffect(() => {
+    const current =
+      navItems.find((item) => item.path === location.pathname) || null;
+    if (current) setActiveLink(current.label);
+  }, [location.pathname]);
 
   const handleNavClick = (linkName) => {
     setExpanded(false);
-    if (linkName) {
-      setActiveLink(linkName);
-    }
+    if (linkName) setActiveLink(linkName);
   };
 
   const renderNavItem = (item, index) => {
     if (item.type === "dropdown") {
       return (
         <div key={index} className="nav-dropdown-container">
-          <span className={`fw-normal fw-semibold ${activeLink === item.label ? 'navLink' : 'textColor'}`}>
+          <span
+            className={`fw-normal fw-semibold ${
+              activeLink === item.label ? "navLink" : "textColor"
+            }`}
+          >
             {item.label}
           </span>
           <div className="custom-dropdown show">
             {item.items.map((dropdownItem, dropdownIndex) => (
               <NavDropdown.Item
                 key={dropdownIndex}
+                as={Link}
+                to={dropdownItem.path}
                 className="textColor fs-6 fw-semibold"
-                onClick={() => handleNavClick(dropdownItem)}
+                onClick={() => handleNavClick(dropdownItem.label)}
               >
-                {dropdownItem}
+                {dropdownItem.label}
               </NavDropdown.Item>
             ))}
           </div>
@@ -74,7 +82,11 @@ export default function Header() {
     return (
       <Nav.Link
         key={index}
-        className={`fw-normal fw-semibold ${activeLink === item.label ? 'navLink' : 'textColor'}`}
+        as={Link}
+        to={item.path}
+        className={`fw-normal fw-semibold ${
+          activeLink === item.label ? "navLink" : "textColor"
+        }`}
         onClick={() => handleNavClick(item.label)}
       >
         {item.label}
@@ -86,7 +98,12 @@ export default function Header() {
     if (item.type === "button") {
       return (
         <Nav.Item key={index}>
-          <Button className="fw-normal" onClick={() => handleNavClick(item.label)}>
+          <Button
+            as={Link}
+            to={item.path}
+            className="fw-normal"
+            onClick={() => handleNavClick(item.label)}
+          >
             {item.label}
           </Button>
         </Nav.Item>
@@ -96,7 +113,11 @@ export default function Header() {
     return (
       <Nav.Link
         key={index}
-        className={`fw-normal text-nowrap fw-semibold ${activeLink === item.label ? 'navLink' : 'textColor'}`}
+        as={Link}
+        to={item.path}
+        className={`fw-normal text-nowrap fw-semibold  ${
+          activeLink === item.label ? "navLink" : "textColor"
+        }`}
         onClick={() => handleNavClick(item.label)}
       >
         {item.label}
@@ -105,15 +126,20 @@ export default function Header() {
   };
 
   return (
-    <Navbar expand="lg" expanded={expanded} className="px-5 py-2 secondaryColor">
+    <Navbar
+      expand="lg"
+      expanded={expanded}
+      className="px-5 py-2 secondaryColor"
+    >
       <Container fluid>
-        <Navbar.Brand>
-          <img src={logo} alt="" />
+        <Navbar.Brand as={Link} to="/">
+          <img className="imgLogo" src={logo} alt="Logo" />
         </Navbar.Brand>
+
         <button
           className="navbar-toggler d-lg-none d-flex align-items-center justify-content-center border-0"
           type="button"
-          onClick={handleToggle}
+          onClick={() => setExpanded(!expanded)}
           aria-controls="navbarScroll"
           aria-expanded={expanded}
           aria-label="Toggle navigation"

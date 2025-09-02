@@ -1,5 +1,5 @@
-import howitworksImg from "../assets/howitworks.png";
-import whychooseusImg from "../assets/whychooseus.png";
+import howitworksImg from "../../assets/howitworks.png";
+import whychooseusImg from "../../assets/whychooseus.png";
 import { Col, Container, Row } from "react-bootstrap";
 export default function WhyChooseUs() {
   return (

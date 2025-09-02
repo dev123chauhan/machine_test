@@ -1,8 +1,8 @@
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
-import howitworksImg from "../assets/howitworks.png";
-import imagepostformate from "../assets/imagepostformate.png";
-import coupleofmonth from "../assets/coupleofmonth.png";
-import mediaforblogarticle from "../assets/mediaforblogarticle.png";
+import howitworksImg from "../../assets/howitworks.png";
+import imagepostformate from "../../assets/imagepostformate.png";
+import coupleofmonth from "../../assets/coupleofmonth.png";
+import mediaforblogarticle from "../../assets/mediaforblogarticle.png";
 export default function SuccessStories() {
   const successStories = [
     {

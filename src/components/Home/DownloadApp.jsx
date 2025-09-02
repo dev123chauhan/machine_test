@@ -1,9 +1,9 @@
 import { Col, Container, Row } from "react-bootstrap";
-import mobile from "../assets/mobile.png";
-import googlestore from "../assets/googleplay.png";
-import appstore from "../assets/appstore.png";
-import heartsLeft from "../assets/Group.png";
-import heartsRight from "../assets/Group 1000006496.png";
+import mobile from "../../assets/mobile.png";
+import googlestore from "../../assets/googleplay.png";
+import appstore from "../../assets/appstore.png";
+import heartsLeft from "../../assets/Group.png";
+import heartsRight from "../../assets/Group 1000006496.png";
 
 export default function DownloadApp() {
   return (

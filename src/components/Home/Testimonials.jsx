@@ -1,8 +1,8 @@
 import { Col, Container, Row } from "react-bootstrap";
-import howitworksImg from "../assets/howitworks.png";
-import tesimonialImg from "../assets/testimonialImg.png";
-import testmonialsSlide from "../assets/testimonialSlide.png";
-import highlight from "../assets/highlight.png";
+import howitworksImg from "../../assets/howitworks.png";
+import tesimonialImg from "../../assets/testimonialImg.png";
+import testmonialsSlide from "../../assets/testimonialSlide.png";
+import highlight from "../../assets/highlight.png";
 
 export default function Testimonials() {
   const designation = "{Designer}";

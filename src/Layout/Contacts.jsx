@@ -9,7 +9,7 @@ export default function Contacts() {
       <Container fluid className="secondaryColor px-4 py-2">
         <Row className="align-items-center text-center text-md-start">
           <Col
-            xs={12}
+            xs={12}   
             md={6}
             className="d-flex flex-column flex-md-row align-items-center align-items-md-start gap-2 gap-md-4 mb-2 mb-md-0"
           >

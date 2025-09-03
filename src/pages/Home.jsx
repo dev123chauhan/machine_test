@@ -5,27 +5,17 @@ import Members from "../components/Home/Members";
 import SuccessStories from "../components/Home/SuccessStories";
 import Testimonials from "../components/Home/Testimonials";
 import WhyChooseUs from "../components/Home/WhyChooseUs";
-import member1 from "../assets/member1.png";
-import member2 from "../assets/member2.png";
-import member3 from "../assets/member3.png";
-import member4 from "../assets/member4.png";
-import member5 from "../assets/member5.png";
 import howitworksImg from "../assets/howitworks.png";
-const members = [
-  { img: member1, title: "Angel Hopkins", text: "Canada . 32" },
-  { img: member1, title: "Angel Hopkins", text: "Canada . 32" },
-  { img: member2, title: "Angel Hopkins", text: "Canada . 32" },
-  { img: member3, title: "Angel Hopkins", text: "Canada . 32" },
-  { img: member4, title: "Angel Hopkins", text: "Canada . 32" },
-  { img: member5, title: "Angel Hopkins", text: "Canada . 32" },
-];
+import { members } from "../../data";
+
 export default function Home() {
+  const limitedMembers = members.slice(0, 6);
   return (
     <>
       <Hero />
       <HowDoesItWorks />
       <Members
-        members={members}
+        members={limitedMembers}
         showHeader={true}
         headerTitle="Top Members"
         headerSubtitle="Soulsync Top Members"

@@ -24,8 +24,8 @@ export default function Members({
           {members &&
             members.map((member, index) => {
               return (
-                <Col key={index} xxl={2} xl={2} lg={3} md={6} sm={12} xs={12}>
-                  <Card className="p-2 shadow border-0">
+                <Col  key={index} xxl={2} xl={2} lg={3} md={6} sm={12} xs={12}>
+                  <Card  className="p-2 shadow border-0">
                     <Card.Img src={member.img} className="w-100" alt="" />
                     <Card.Body>
                       <Card.Title className="textColor fw-bold text-center">

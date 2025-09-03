@@ -2,6 +2,10 @@
 :root {
   --primary-color: #b76e791a;
   --secondary-color: #b76e79;
+  --bs-border-color-translucent: #b76e79 !important;
+  --bs-card-cap-bg: #fff !important;
+  --bs-body-color-rgb: #fff !important;
+  --bs-body-bg: transparent !important;
 }
 .textColor {
   color: #001f54 !important;
@@ -31,7 +35,6 @@
   --bs-btn-disabled-color: #fff;
   --bs-btn-disabled-bg: var(--secondary-color) !important;
   --bs-btn-disabled-border-color: var(--secondary-color) !important;
-
 }
 .btn {
   --bs-btn-padding-x: 28px !important;
@@ -113,3 +116,45 @@
   padding-top: 10rem;
   padding-bottom: 10rem;
 }
+
+.custom-tabs {
+  background-color: var(--primary-color) !important;
+  border-radius: 10px !important;
+}
+
+.custom-tabs .nav-link {
+  color: #001f54 !important;
+  font-weight: 600 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.custom-tabs .nav-link.active {
+  color: var(--secondary-color) !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.card {
+  border: var(--bs-card-border-width) solid var(--bs-border-color-translucent) !important;
+}
+.card-header {
+  background-color: var(--bs-card-cap-bg) !important;
+  margin-bottom: 20px !important;
+  border-bottom: 1px solid #001f54 !important;
+}
+.filterSearchMemberCard {
+  border: none !important;
+  background-color: var(--primary-color) !important;
+}
+.basicInformationCardHeader {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+} 
+
+.custom-select,
+.custom-select option {
+  color: #001f54; 
+}
+

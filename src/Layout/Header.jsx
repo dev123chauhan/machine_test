@@ -6,39 +6,14 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../assets/logo.png";
-import { HiMenu, HiX } from "react-icons/hi";
-
-const navItems = [
-  { label: "Home", type: "link", path: "/" },
-  { label: "Features", type: "link", path: "/features" },
-  {
-    label: "Community",
-    type: "dropdown",
-    items: [
-      { label: "Members", path: "/members" },
-      { label: "Members Details", path: "/members-details" },
-      { label: "Stories", path: "/stories" },
-      { label: "Groups", path: "/groups" },
-      { label: "Active Groups", path: "/active-groups" },
-      { label: "Login", path: "/login" },
-      { label: "Sign Up", path: "/signup" },
-    ],
-  },
-  { label: "Blog", type: "link", path: "/blog" },
-  { label: "Pages", type: "link", path: "/pages" },
-  { label: "Contact", type: "link", path: "/contact" },
-];
-
-const rightNavItems = [
-  { label: "Sign in", type: "link", path: "/signin" },
-  { label: "Help", type: "link", path: "/help" },
-  { label: "Register", type: "button", path: "/register" },
-];
-
+import { navItems, rightNavItems } from "../../data";
+import { CiMenuFries } from "react-icons/ci";
+import { TfiClose } from "react-icons/tfi";
 export default function Header() {
   const [expanded, setExpanded] = useState(false);
   const [activeLink, setActiveLink] = useState("Home");
   const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const current =
@@ -62,19 +37,21 @@ export default function Header() {
           >
             {item.label}
           </span>
-          <div className="custom-dropdown show">
-            {item.items.map((dropdownItem, dropdownIndex) => (
-              <NavDropdown.Item
-                key={dropdownIndex}
-                as={Link}
-                to={dropdownItem.path}
-                className="textColor fs-6 fw-semibold"
-                onClick={() => handleNavClick(dropdownItem.label)}
-              >
-                {dropdownItem.label}
-              </NavDropdown.Item>
-            ))}
-          </div>
+          {isHomePage && (
+            <div className="custom-dropdown show">
+              {item.items.map((dropdownItem, dropdownIndex) => (
+                <NavDropdown.Item
+                  key={dropdownIndex}
+                  as={Link}
+                  to={dropdownItem.path}
+                  className="textColor fs-6 fw-semibold"
+                  onClick={() => handleNavClick(dropdownItem.label)}
+                >
+                  {dropdownItem.label}
+                </NavDropdown.Item>
+              ))}
+            </div>
+          )}
         </div>
       );
     }
@@ -145,9 +122,9 @@ export default function Header() {
           aria-label="Toggle navigation"
         >
           {expanded ? (
-            <HiX size={30} className="primaryColor" />
+            <TfiClose size={30} className="primaryColor" />
           ) : (
-            <HiMenu size={30} className="primaryColor" />
+            <CiMenuFries size={30} className="primaryColor" />
           )}
         </button>
 

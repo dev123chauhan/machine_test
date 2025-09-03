@@ -1,36 +1,13 @@
 import { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import logo from "../assets/logo.png";
-import user from "../assets/user.png"
-
+import { recentNews } from "../../data";
 export default function Footer() {
   const [email, setEmail] = useState("");
-  const recentNews = [
-    {
-      id: 1,
-      name: "Samantha Lee",
-      status: "Active",
-      image: user
-    },
-    {
-      id: 2,
-      name: "Samantha Lee", 
-      status: "1 Hours Ago",
-      image: user
-    },
-    {
-      id: 3,
-      name: "Samantha Lee",
-      status: "3 Hours Ago", 
-      image: user
-    }
-  ];
-
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Email submitted:", email);
   };
-
   return (
     <>
       <Container>
@@ -38,7 +15,9 @@ export default function Footer() {
           <Col lg={4} md={12} className="mb-4">
             <div className="mb-4">
               <div className="d-flex align-items-center mb-3">
-                <div><img src={logo} alt="" className="w-100" /></div>
+                <div>
+                  <img src={logo} alt="" className="w-100" />
+                </div>
               </div>
 
               <p className="textColor">
@@ -50,13 +29,16 @@ export default function Footer() {
               </p>
             </div>
           </Col>
-          
+
           <Col lg={4} md={6} className="mb-4">
             <h2 className="fw-bold textColor">Our Recent News</h2>
 
             <div className="d-flex flex-column gap-3">
               {recentNews.map((newsItem) => (
-                <div key={newsItem.id} className="d-flex align-items-center gap-3">
+                <div
+                  key={newsItem.id}
+                  className="d-flex align-items-center gap-3"
+                >
                   <img
                     src={newsItem.image}
                     alt={newsItem.name}
